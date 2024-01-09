@@ -1,11 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './app'
-import './styles.css'
+import * as React from 'react'
+import ReactDOM from 'react-dom/client'
+import { WrappedTldrawEditor } from './app'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+	<React.StrictMode>
+		<WrappedTldrawEditor />
+	</React.StrictMode>
 )

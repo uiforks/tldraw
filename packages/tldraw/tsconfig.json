@@ -1,18 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["src", "src/test/*.json"],
-  "exclude": ["node_modules", "dist", "docs"],
-  "compilerOptions": {
-    "resolveJsonModule": true,
-    "outDir": "./dist/types",
-    "rootDir": "src",
-    "baseUrl": "src",
-    "paths": {
-      "~*": ["./*"]
-    }
-  },
-  "typedocOptions": {
-    "entryPoints": ["src/index.ts"],
-    "out": "docs"
-  }
+	"extends": "../../config/tsconfig.base.json",
+	"include": ["src"],
+	"exclude": ["node_modules", "dist", "**/*.css", ".tsbuild*", "./scripts/legacy-translations"],
+	"compilerOptions": {
+		"outDir": "./.tsbuild",
+		// TODO: Enable noImplicitReturns
+		"noImplicitReturns": false,
+		"rootDir": "src"
+	},
+	"references": [{ "path": "../editor" }]
 }

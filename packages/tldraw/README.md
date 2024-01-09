@@ -1,131 +1,73 @@
-<div style="text-align: center; transform: scale(.5);">
-  <img src="card-repo.png"/>
+<div alt style="text-align: center; transform: scale(.5);">
+	<picture>
+		<source media="(prefers-color-scheme: dark)" srcset="https://github.com/tldraw/tldraw/raw/main/assets/github-hero-dark.png" />
+		<img alt="tldraw" src="https://github.com/tldraw/tldraw/raw/main/assets/github-hero-light.png" />
+	</picture>
 </div>
 
 # @tldraw/tldraw
 
-This package contains the [tldraw](https://tldraw.com) editor as a React component named `<Tldraw>`. You can use this package to embed the editor in any React application.
-
-💕 Love this library? Consider [becoming a sponsor](https://github.com/sponsors/steveruizok?frequency=recurring&sponsor=steveruizok).
-
-🙌 Questions? Join the [Discord channel](https://discord.gg/SBBEVCA4PG) or start a [discussion](https://github.com/tldraw/tldraw/discussions/new).
-
-🎨 Want to build your own tldraw-ish app instead? Try the **@tldraw/core** folder instead.
+This package contains the source code for the tldraw library. Learn more at our docs site: [tldraw.dev](https://tldraw.dev).
 
 ## Installation
 
-Use your package manager of choice to install `@tldraw/tldraw` and its peer dependencies.
+Install the `@tldraw/tldraw` package using `@canary` for the latest canary release. (Or `@alpha` for the latest alpha release.)
 
 ```bash
-yarn add @tldraw/tldraw
+yarn add @tldraw/tldraw@canary
 # or
-npm i @tldraw/tldraw
+npm install @tldraw/tldraw@canary
+# or
+pnpm i @tldraw/tldraw@canary
+```
+
+Then start the local development server.
+
+```bash
+yarn dev
+# or
+npm run dev
+# or
+pnpm dev
 ```
 
 ## Usage
 
-Import the `tldraw` React component and use it in your app.
+An extremely minimal usage (without our UI) might look like this:
 
 ```tsx
 import { Tldraw } from '@tldraw/tldraw'
+import '@tldraw/tldraw/tldraw.css'
 
-function App() {
-  return <Tldraw />
+export default function () {
+	return <Tldraw/>
 }
 ```
 
-### Persisting the State
-
-You can use the `id` to persist the state in a user's browser storage.
-
-```tsx
-import { Tldraw } from '@tldraw/tldraw'
-
-function App() {
-  return <Tldraw id="myState" />
-}
-```
-
-### Controlling the Component through Props
-
-You can control the `<Tldraw/>` component through its props.
-
-```tsx
-import { Tldraw, TDDocument } from '@tldraw/tldraw'
-
-function App() {
-  const myDocument: TDDocument = {}
-
-  return <Tldraw document={document} />
-}
-```
-
-### Controlling the Component through the tldrawApp API
-
-You can also control the `<Tldraw/>` component imperatively through the `TldrawApp` API.
-
-```tsx
-import { Tldraw, tldrawApp } from '@tldraw/tldraw'
-
-function App() {
-  const handleMount = React.useCallback((app: TldrawApp) => {
-    app.selectAll()
-  }, [])
-
-  return <Tldraw onMount={handleMount} />
-}
-```
-
-Internally, the `<Tldraw/>` component's user interface uses this API to make changes to the component's state. See the `tldrawApp` section of the [documentation](packages/tldraw/guides/documentation.md) for more on this API.
-
-### Responding to Changes
-
-You can respond to changes and user actions using the `onChange` callback. For more specific changes, you can also use the `onPatch`, `onCommand`, or `onPersist` callbacks. See the [documentation](packages/tldraw/guides/documentation.md) for more.
-
-```tsx
-import { Tldraw, TldrawApp } from '@tldraw/tldraw'
-
-function App() {
-  const handleChange = React.useCallback((app: TldrawApp, reason: string) => {
-    // Do something with the change
-  }, [])
-
-  return <Tldraw onMount={handleMount} />
-}
-```
-
-## Documentation
-
-See the project's [documentation](packages/tldraw/guides/documentation.md).
-
-## Contribution
-
-See the [contributing guide](/CONTRIBUTING.md).
-
-## Development
-
-See the [development guide](packages/tldraw/guides/development.md).
-
-## Example
-
-See the `example` folder for examples of how to use the `<Tldraw/>` component.
+See the [examples folder](https://github.com/tldraw/tldraw/tree/main/apps/examples) for more examples.
 
 ## Community
 
-### Support
+Have questions, comments or feedback? [Join our discord](https://discord.gg/rhsyWMUJxd) or [start a discussion](https://github.com/tldraw/tldraw/discussions/new).
 
-Need help? Please [open an issue](https://github.com/tldraw/tldraw/issues/new) for support.
+## Distributions
 
-### Discussion
+You can find tldraw on npm [here](https://www.npmjs.com/package/@tldraw/tldraw?activeTab=versions).
 
-Want to connect with other devs? Visit the [Discord channel](https://discord.gg/SBBEVCA4PG).
+## Contribution
 
-### License
+Please see our [contributing guide](https://github.com/tldraw/tldraw/blob/main/CONTRIBUTING.md). Found a bug? Please [submit an issue](https://github.com/tldraw/tldraw/issues/new).
 
-This project is licensed under MIT.
+## License
 
-If you're using the library in a commercial product, please consider [becoming a sponsor](https://github.com/sponsors/steveruizok?frequency=recurring&sponsor=steveruizok).
+The tldraw source code and its distributions are provided under the [tldraw license](https://github.com/tldraw/tldraw/blob/master/LICENSE.md). This license does not permit commercial use.
 
-## Author
+If you wish to use this project in commercial product, you need to purchase a commercial license. Please contact us at [hello@tldraw.com](mailto:hello@tldraw.com) for more inforion about obtaining a commercial license.
 
-- [@steveruizok](https://twitter.com/steveruizok)
+## Trademarks
+
+Copyright (c) 2023-present tldraw Inc. The tldraw name and logo are trademarks of tldraw. Please see our [trademark guidelines](https://github.com/tldraw/tldraw/blob/main/TRADEMARKS.md) for info on acceptable usage.
+
+## Contact
+
+Find us on Twitter at [@tldraw](https://twitter.com/tldraw) or email [hello@tldraw.com](mailto://hello@tldraw.com). You can also [join our discord](https://discord.gg/rhsyWMUJxd) for quick help and support.
